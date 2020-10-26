@@ -10,16 +10,31 @@ package com.math;
 
 import static org.junit.Assert.*;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 public class CalculatorTest
 {
+    private Calculator calc;
 
+    // Set up before each test method
+    @Before
+    public void setUp()
+    {
+        System.out.println("setUp");
+        calc = new Calculator();
+    }
+    @After
+    public void after()
+    {
+        System.out.println("After");
+    }
 
     @Test
     public void testAdd()
     {
-        Calculator calc = new Calculator();
+        //Calculator calc = new Calculator();
         assertEquals(5, calc.add(1, 4));  // expected, actual
     }
     /*
@@ -30,14 +45,14 @@ public class CalculatorTest
     @Test
     public void testDivide()
     {
-        Calculator calc = new Calculator();
+        //Calculator calc = new Calculator();
         assertEquals(3,calc.divide(9,3), .001);
 
     }
     @Test
     public void testIsEqual()
     {
-        Calculator calc = new Calculator();
+        //Calculator calc = new Calculator();
         assertTrue(calc.isEven(698));
         assertFalse(calc.isEven(9));
 
