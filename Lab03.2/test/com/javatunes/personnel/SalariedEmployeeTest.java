@@ -29,6 +29,8 @@ public class SalariedEmployeeTest
         assertEquals(15000.0, emp.payTaxes(), 0.001);
     }
 
+
+
     @After
     public void tearDown() throws Exception
     {

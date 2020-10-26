@@ -42,7 +42,7 @@ public class HourlyEmployee extends Employee
     @Override  // interface TaxPayer
     public double payTaxes()
     {
-        double taxes = HOURLY_TAX_RATE * getRate() * getHours();
+        double taxes = HOURLY_TAX_RATE * (getRate() * getHours());
         System.out.println(getName() + " paid taxes of " + taxes);
         return taxes;
     }
