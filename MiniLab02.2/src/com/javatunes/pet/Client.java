@@ -24,13 +24,13 @@ public class Client {
     
     // NOW which method runs? (for the 3rd time, you should not call it this way...)
     Cat c2 = (Cat) a2;
-    c2.makeSound();
+    //c2.makeSound();
     
     System.out.println();
     
     // don't get confused by the code above, it's all bogus (and the compiler warnings are spot on)
     // THIS is what you should do:
     Animal.makeSound();
-    Cat.makeSound();
+    //Cat.makeSound();
   }
 }
