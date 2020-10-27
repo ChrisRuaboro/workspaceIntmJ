@@ -6,7 +6,8 @@
  * We hope that it's useful to you.  Enjoy.
  * Copyright LearningPatterns Inc.
  */
-package com.entertainment;
+package com.javatunes.catalog;
 
-public enum DisplayType
-{LCD, LED, OLED, PLASMA, CRT}
+public enum MusicCategory {
+	BLUES, CLASSICAL, JAZZ, RAP, COUNTRY, POP, ALTERNATIVE, ROCK, CLASSIC_ROCK
+}
