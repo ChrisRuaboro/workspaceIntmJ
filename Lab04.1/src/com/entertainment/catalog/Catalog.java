@@ -39,6 +39,7 @@ public class Catalog
 
         for (String s : brands) {
             Collection<Television> matchesFound = new ArrayList<>();
+            // Could've done Collection<Television> tvs = findByBrand(s);
             for (Television television : catalog) {
                 if (television.getBrand().equals(s)) {
                     matchesFound.add(television);
@@ -62,7 +63,7 @@ public class Catalog
      */
     public static Collection<Television> getInventory()
     {
-        return catalog;
+        return Collections.unmodifiableCollection(catalog);
     }
 
     /*
