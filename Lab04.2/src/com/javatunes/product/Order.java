@@ -24,6 +24,9 @@ public class Order
      * get the items from the cart and iterate over them, print each item's product code
      * get cart total and print
      */
+
+    // alternate argument
+    // public <T extends Product> void processCart(ShoppingCart<T> cart)
     public void processCart(ShoppingCart<? extends Product> cart)
     {
         System.out.println("Order ID:" + getId() + " contains the following");
