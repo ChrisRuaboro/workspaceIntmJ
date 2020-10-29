@@ -10,7 +10,7 @@ package com.javatunes.product;
 
 import java.util.Collection;
 
-public class Order
+public class Order // Can have Order<T extends Product>
 {
     private String id;
 
@@ -25,8 +25,10 @@ public class Order
      * get cart total and print
      */
 
+    // Option 2:
     // alternate argument
     // public <T extends Product> void processCart(ShoppingCart<T> cart)
+
     public void processCart(ShoppingCart<? extends Product> cart)
     {
         System.out.println("Order ID:" + getId() + " contains the following");

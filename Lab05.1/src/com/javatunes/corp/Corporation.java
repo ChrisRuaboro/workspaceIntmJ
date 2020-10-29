@@ -10,28 +10,34 @@ package com.javatunes.corp;
 
 import gov.irs.TaxPayer;
 
-public class Corporation
-implements TaxPayer {
-  private String name;
-  
-  public Corporation() {
-  }
-  
-  public Corporation(String name) {
-    setName(name);
-  }
-  
-  @Override  // interface TaxPayer
-  public double payTaxes() {
-    double taxes = 0;
-    System.out.println(getName() + " paid no taxes - we lobbied hard and it worked");
-    return taxes;
-  }
+public class Corporation implements TaxPayer
+{
+    private String name;
 
-  public String getName() {
-    return this.name;
-  }
-  public void setName(String name) {
-    this.name = name;
-  }
+    public Corporation()
+    {
+    }
+
+    public Corporation(String name)
+    {
+        setName(name);
+    }
+
+    @Override  // interface TaxPayer
+    public double payTaxes()
+    {
+        double taxes = 0;
+        System.out.println(getName() + " paid no taxes - we lobbied hard and it worked");
+        return taxes;
+    }
+
+    public String getName()
+    {
+        return this.name;
+    }
+
+    public void setName(String name)
+    {
+        this.name = name;
+    }
 }
