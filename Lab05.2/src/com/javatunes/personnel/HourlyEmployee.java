@@ -16,16 +16,16 @@ public class HourlyEmployee extends Employee
     private Double rate;
     private Double hours;
 
-    public HourlyEmployee()
+    protected HourlyEmployee()
     {
     }
 
-    public HourlyEmployee(String name, Date hireDate)
+    protected HourlyEmployee(String name, Date hireDate)
     {
         super(name, hireDate);
     }
 
-    public HourlyEmployee(String name, Date hireDate, Double rate, Double hours)
+    protected HourlyEmployee(String name, Date hireDate, Double rate, Double hours)
     {
         this(name, hireDate);
         setRate(rate);

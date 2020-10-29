@@ -10,11 +10,19 @@ package com.javatunes.billing;
 
 /**
  * European orders are taxed as follows:
- *  VAT is 17% of taxable amount.
- *  Luxury tax is an additional 25% on amount over $100.
- *  
+ * VAT is 17% of taxable amount.
+ * Luxury tax is an additional 25% on amount over $100.
+ * <p>
  * TODO: implement this algorithm.
  */
-public class EuropeTax {
-
+public class EuropeTax implements TaxCalculator
+{
+    @Override
+    public double taxAmount(double taxable)
+    {
+        double vat = taxable * 0.17;
+        if (taxable > 100)
+            vat += (taxable - 100) * 0.25;
+        return vat;
+    }
 }

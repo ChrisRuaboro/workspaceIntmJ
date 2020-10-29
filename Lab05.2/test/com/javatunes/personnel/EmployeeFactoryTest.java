@@ -60,7 +60,7 @@ public class EmployeeFactoryTest
     {
         Employee emp = EmployeeFactory.createEmployee(seMap);
         assertEquals(SalariedEmployee.class, emp.getClass());
-        assertEquals("Jackie", emp.getName());
+        assertEquals(seMap.get("name"), emp.getName());
         assertEquals(Date.valueOf("1990-08-24"), emp.getHireDate());
         // downcast the 'emp' reference to the more specific type, to call SalariedEmp methods
         SalariedEmployee semp = (SalariedEmployee)emp;
@@ -75,7 +75,7 @@ public class EmployeeFactoryTest
     {
         Employee emp = EmployeeFactory.createEmployee(heMap);
         assertEquals(HourlyEmployee.class, emp.getClass());
-        assertEquals("Jackie", emp.getName());
+        assertEquals(heMap.get("name"), emp.getName());
         assertEquals(Date.valueOf("1990-08-24"), emp.getHireDate());
         // downcast the 'emp' reference to the more specific type, to call hourlyEmp methods
         HourlyEmployee hemp = (HourlyEmployee)emp;

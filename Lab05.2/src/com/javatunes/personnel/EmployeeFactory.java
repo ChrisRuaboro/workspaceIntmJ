@@ -30,22 +30,32 @@ public class EmployeeFactory
         String type = inputMap.get("type"); // HE - SE - OR SOMETHING ELSE
         String name = inputMap.get("name");
         Date hireDate = Date.valueOf(inputMap.get("hireDate"));
-        if (type.equals("HE"))
+        if ("HE".equals(type))
         {
-            HourlyEmployee hemp = new HourlyEmployee(name,hireDate);
-            hemp.setHours(Double.valueOf(inputMap.get("hours")));
-            hemp.setRate(Double.valueOf(inputMap.get("rate")));
-            return hemp;
+            return createHourlyEmployee(inputMap, name, hireDate);
         }
-        if(type.equals("SE"))
+        if("SE".equals(type))
         {
-            SalariedEmployee semp = new SalariedEmployee(name,hireDate);
-            semp.setSalary(Double.valueOf(inputMap.get("salary")));
-            return semp;
+            return createSalariedEmployee(inputMap, name, hireDate);
         }
         else
         {
             throw new IllegalArgumentException("Illegal argument : " + type + " is not a valid Employee");
         }
+    }
+
+    private static SalariedEmployee createSalariedEmployee(Map<String, String> inputMap, String name, Date hireDate)
+    {
+        SalariedEmployee semp = new SalariedEmployee(name, hireDate);
+        semp.setSalary(Double.valueOf(inputMap.get("salary")));
+        return semp;
+    }
+
+    private static HourlyEmployee createHourlyEmployee(Map<String, String> inputMap, String name, Date hireDate)
+    {
+        HourlyEmployee hemp = new HourlyEmployee(name, hireDate);
+        hemp.setHours(Double.valueOf(inputMap.get("hours")));
+        hemp.setRate(Double.valueOf(inputMap.get("rate")));
+        return hemp;
     }
 }

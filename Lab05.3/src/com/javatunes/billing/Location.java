@@ -8,6 +8,7 @@
  */
 package com.javatunes.billing;
 
-public enum Location {
-  USA, EUROPE, ONLINE
+public enum Location
+{
+    USA, EUROPE, ONLINE
 }

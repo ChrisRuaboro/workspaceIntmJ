@@ -16,11 +16,11 @@ public abstract class Employee
     private String name;
     private Date hireDate;
 
-    public Employee()
+    protected Employee()
     {
     }
 
-    public Employee(String name, Date hireDate)
+    protected Employee(String name, Date hireDate)
     {
         setName(name);
         setHireDate(hireDate);
