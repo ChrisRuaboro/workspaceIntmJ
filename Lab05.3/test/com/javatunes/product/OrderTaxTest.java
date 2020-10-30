@@ -54,7 +54,7 @@ public class OrderTaxTest
         order1.processCart(cart1);
         assertEquals(0.0,order1.getTax(),.001);
 
-        Order order2 = new Order("order-1",Location.EUROPE);
+        Order order2 = new Order("order-1",Location.ONLINE);
         order2.processCart(cart2);
         assertEquals(0.0,order2.getTax(),.001);
     }
