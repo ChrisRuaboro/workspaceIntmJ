@@ -10,16 +10,60 @@ package com.entertainment.catalog;
 
 import static org.junit.Assert.*;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import org.junit.Test;
 import com.entertainment.Television;
+import org.w3c.dom.ls.LSOutput;
 
 public class CatalogTest
 {
+    @Test
+    public void testSortByVolumeIncreasing()
+    {
+        List<Television> tvList = new ArrayList<>(Catalog.getInventory());
+        tvList.sort(new Comparator<Television>()
+        {
+            @Override
+            public int compare(Television o1, Television o2)
+            {
+                return Integer.compare(o1.getVolume(),o2.getVolume());
+            }
+        });
+        // dump the list and inspect it
+        tvList.forEach(System.out::println);
+    }
+
+    @Test
+    public void testSortNamesByLength()
+    {
+        List<String> names = Arrays.asList("Chris P", "Apekshya", "Aliona"
+                , "Ty", "Malik", "Mitchell", "Chris R", "Brad", "Gina");
+
+        names.sort(new Comparator<String>()
+        {
+            @Override
+            public int compare(String name1, String name2)
+            {
+                return Integer.compare(name1.length(), name2.length());
+            }
+        });
+        names.forEach(System.out::println);
+    }
+
+    @Test
+    public void testFindMaxTelevisionByVolume()
+    {
+        Television maxTv = Collections.max(Catalog.getInventory(), new Comparator<Television>()
+        {
+            @Override
+            public int compare(Television o1, Television o2)
+            {
+                return Integer.compare(o1.getVolume(), o2.getVolume());
+            }
+        });
+        System.out.println("Loudest TV : " + maxTv);
+    }
 
     /**
      * Contract: a no-matches result should be an empty collection (not null).

@@ -16,7 +16,7 @@ import org.junit.Test;
 
 public class TelevisionChannelComparatorTest
 {
-    private Comparator<Television> comparator = new TelevisionChannelComparator();
+    private Comparator<Television> comparator = new Television.ChannelComparator();
 
     @Test
     public void testCompare() throws InvalidChannelException

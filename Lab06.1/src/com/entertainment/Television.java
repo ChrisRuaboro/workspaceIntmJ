@@ -8,10 +8,14 @@
  */
 package com.entertainment;
 
+import java.util.Comparator;
 import java.util.Objects;
 
 public class Television implements Comparable<Television>
 {
+    public enum DisplayType
+    {LCD, LED, OLED, PLASMA, CRT}
+
     public static final int MIN_VOLUME = 0;
     public static final int MAX_VOLUME = 100;
     public static final int MIN_CHANNEL = 1;
@@ -21,6 +25,7 @@ public class Television implements Comparable<Television>
     private int volume;
     private DisplayType display;
     private Tuner tuner = new Tuner();  // set up internally and used for channel management
+
 
     public Television()
     {
@@ -140,4 +145,30 @@ public class Television implements Comparable<Television>
             this.channel = channel;
         }
     }
+
+    public static class ChannelComparator implements Comparator<Television>
+    {
+
+        @Override
+        public int compare(Television tv1, Television tv2)
+        {
+            return Integer.compare(tv1.getCurrentChannel(), tv2.getCurrentChannel());
+        }
+    }
+
+    public static class BrandChannelComparator implements Comparator<Television>
+    {
+
+        @Override
+        public int compare(Television tv1, Television tv2)
+        {
+            int result = tv1.getBrand().compareTo(tv2.getBrand());
+
+            if (result == 0) {
+                result = Integer.compare(tv1.getCurrentChannel(), tv2.getCurrentChannel());
+            }
+            return result;
+        }
+    }
+
 }
