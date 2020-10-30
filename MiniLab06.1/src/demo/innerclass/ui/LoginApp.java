@@ -59,7 +59,7 @@ extends JFrame {
   }
 
   ///// INNER CLASSES /////
-
+  // member level inner class //
   private class InnerListener implements ActionListener {
     /**
      * The heart of an ActionListener - this gets called when the event is fired.
