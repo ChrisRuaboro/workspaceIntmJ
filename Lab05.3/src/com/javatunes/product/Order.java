@@ -10,6 +10,7 @@ package com.javatunes.product;
 
 import com.javatunes.billing.Location;
 import com.javatunes.billing.TaxCalculator;
+import com.javatunes.billing.TaxCalculatorFactory;
 
 import java.util.Collection;
 
@@ -18,6 +19,7 @@ public class Order
     private String id;
     private double totalCost;
     private Location location;
+    private TaxCalculator calc;
 
     public Order(String id, Location location)
     {
@@ -68,5 +70,10 @@ public class Order
     public double getTotalCost()
     {
         return totalCost;
+    }
+    // INJECTION POINT for the delegate TaxCalculator object
+    public void setTaxCalculator(TaxCalculator calc)
+    {
+        this.calc = calc;
     }
 }

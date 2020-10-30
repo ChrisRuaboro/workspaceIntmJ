@@ -50,18 +50,43 @@ public class OrderTaxTest
     @Test
     public void testTaxOnlineOrder()
     {
+        Order order1 = new Order("order-1",Location.ONLINE);
+        order1.processCart(cart1);
+        assertEquals(0.0,order1.getTax(),.001);
 
+        Order order2 = new Order("order-1",Location.EUROPE);
+        order2.processCart(cart2);
+        assertEquals(0.0,order2.getTax(),.001);
     }
 
     @Test
     public void testTaxEuropeOrder()
     {
+        Order order1 = new Order("order-1",Location.EUROPE);
+        order1.processCart(cart1);
+        assertEquals(3.40,order1.getTax(),.001);
 
+        Order order2 = new Order("order-1",Location.EUROPE);
+        order2.processCart(cart2);
+        assertEquals(25.40,order2.getTax(),.001);
     }
 
+    // theres boundaries that should be tested. boundaries of 19.99 and 20.01
     @Test
     public void testTaxUSAOrder()
     {
+        Order order1 = new Order("order-1",Location.USA);
+        order1.processCart(cart1);
+        assertEquals(0,order1.getTax(),.001);
 
+        Order order2 = new Order("order-1",Location.USA);
+        order2.processCart(cart2);
+        assertEquals(10,order2.getTax(),.001);
+    }
+
+    @Test
+    public void testTaxOnlineOrder_OrderFactory()
+    {
+        Order order1 = OrderFactory.createOrder("order-1", Location.ONLINE);
     }
 }
