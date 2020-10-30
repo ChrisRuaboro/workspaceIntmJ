@@ -8,22 +8,31 @@
  */
 package com.javatunes.product;
 
+import com.javatunes.billing.Location;
+import com.javatunes.billing.TaxCalculator;
+
 import java.util.Collection;
 
 public class Order
 {
     private String id;
     private double totalCost;
+    private Location location;
 
-    public Order(String id)
+    public Order(String id, Location location)
     {
         this.id = id;
+        this.location = location;
     }
     public double getTax()
     {
-        //TODO we need to decide on a TaxCalculator algorithm (or strategy) to delegate to
 
-        return 0.0;
+        /*
+        //DONE we need to decide on a TaxCalculator algorithm (or strategy) to delegate to
+        */
+        TaxCalculator calc = TaxCalculatorFactory.getTaxCalculator(location);
+        // call the delegate to compute the tax
+        return calc.taxAmount(totalCost);
     }
     /**
      * DONE:
@@ -41,7 +50,7 @@ public class Order
 
         // assign the cart's total to our new private field 'totalCost' above
         totalCost = cart.total();
-        
+
         // print the msg
         System.out.println("Order Total: " + totalCost);
     }
@@ -49,6 +58,11 @@ public class Order
     public String getId()
     {
         return id;
+    }
+
+    public Location getLocation()
+    {
+        return location;
     }
 
     public double getTotalCost()
