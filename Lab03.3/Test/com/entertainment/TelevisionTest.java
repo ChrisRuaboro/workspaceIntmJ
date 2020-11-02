@@ -28,6 +28,12 @@ public class TelevisionTest
     }
 
     @Test
+    public void testChangeChannel_InvalidChannelException_assertThrows()
+    {
+        InvalidChannelException e = assertThrows(InvalidChannelException.class, () -> tv1.changeChannel(0));
+    }
+
+    @Test
     public void compareTo()
     {
         tv2 = new Television("Samsung",69,DisplayType.OLED);
