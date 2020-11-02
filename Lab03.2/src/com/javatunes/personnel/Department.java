@@ -36,9 +36,7 @@ public class Department
 
     public void workEmployees()
     {
-        for (Employee emp : employees) {
-            emp.work();
-        }
+        employees.forEach(Employee::work);
     }
 
     /**
