@@ -16,6 +16,7 @@ package gov.irs;
  * are better left here.  This bends cohesion a bit, but strengthens open-closed:
  * If the IRS were to change tax rates, we would only need to change that here.
  */
+@FunctionalInterface
 public interface TaxPayer
 {
     public static final double HOURLY_TAX_RATE = 0.25;

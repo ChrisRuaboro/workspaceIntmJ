@@ -8,12 +8,19 @@
  */
 package com.javatunes.thread;
 
+import java.awt.*;
+
 public class SimplePrinterTest {
 
   public static void main(String[] args) {
-    Thread thd1 = new Thread(new SimplePrinter());
-    thd1.start();
+    //Thread thd1 = new Thread(new SimplePrinter());
+    //thd1.start();
     
-    // TODO: create another Thread, passing in a lambda as its Runnable - then start it
+    // Done: create another Thread, passing in a lambda as its Runnable - then start it
+    Thread thd2 = new Thread(() -> System.out.println("simple-lambda"));
+    thd2.start();
+
+
+
   }
 }

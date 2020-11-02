@@ -14,6 +14,7 @@ import com.javatunes.corp.Corporation;
 import com.javatunes.personnel.HourlyEmployee;
 import com.javatunes.personnel.SalariedEmployee;
 import gov.irs.IRS;
+import gov.irs.TaxPayer;
 
 public class TaxClient
 {
@@ -32,6 +33,20 @@ public class TaxClient
         irs.register(new HourlyEmployee("Martin", Date.valueOf("2011-02-17"), 25.0, 20.0));
         irs.register(new SalariedEmployee("Lauren", Date.valueOf("1997-04-08"), 50000.0));
         irs.register(new SalariedEmployee("Jason", Date.valueOf("1990-08-24"), 34000.0));
+
+
+        irs.register(new TaxPayer()
+        {
+            @Override
+            public double payTaxes()
+            {
+                return -1500;
+            }
+        });
+
+        //
+        irs.register(() -> -1000);
+
 
         // IRS collects taxes
         System.out.println("IRS collects taxes");
