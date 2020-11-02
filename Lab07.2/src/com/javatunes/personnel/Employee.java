@@ -13,7 +13,7 @@ import com.fastjava.annotation.Fast;
 /**
  * TODO: all methods in this class should run 25% faster.
  */
-@Fast(boost=0.25,metrics = 3500,description = "Make performance 25% faster")
+@Fast(boost=0.25,metrics = true ,description = "Make performance 25% faster")
 public class Employee {
   
   /**
@@ -21,7 +21,7 @@ public class Employee {
    * OSHA regulations require extra logging about the performance improvement,
    * as well as a description of why we're using this technology from FastJava.com.
    */
-  @Fast(boost = 0.5, metrics = 2900)
+  @Fast(boost = 0.5, metrics = true)
   public void work() {
     System.out.println("Employee working hard");
   }

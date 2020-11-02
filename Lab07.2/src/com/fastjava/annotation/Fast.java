@@ -33,7 +33,7 @@ public @interface Fast {
    * Whether or not to log extra information about the performance boost (optional).
    * Includes real-time performance metrics data, in nanoseconds.
    */
-    int metrics() default 1;
+    boolean metrics() default false;
   
   /**
    * Description (optional).
