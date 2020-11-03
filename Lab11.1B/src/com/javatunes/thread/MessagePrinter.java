@@ -8,19 +8,24 @@
 package com.javatunes.thread;
 
 // DONE: extend the Thread class
-public class MessagePrinter extends Thread {
+// Can implement Runnable instead
+public class MessagePrinter extends Thread{
+  private static int count;
+
   private String message;
-  private int interval = 500;  // default value
+  private int times = 10;
+  private int interval;
   
   public MessagePrinter(String message) {
     this.message = message;
     // DONE: set the thread name [important when debugging]
-    setName("Message Printer");
+    setName("My cool MessagePrinter" + count);
   }
-  
-  public MessagePrinter(String message, int interval) {
+
+  public MessagePrinter(String message, int interval){
     this(message);
     this.interval = interval;
+
   }
   
   /**
@@ -32,15 +37,21 @@ public class MessagePrinter extends Thread {
    * The sleep() method throws InterruptedException, which you need to catch.
    * You can either leave the catch block empty, or print the exception to stdout.
    */
-  @Override
   public void run() {
-    for (int i = 0; i < 10; i++) {
-      System.out.println(getName() + ": " + message);
-      try {
+    for (int i = 0; i < times; i++) {
+      System.out.println(message);
+      try{
         Thread.sleep(interval);
       }
-      catch (InterruptedException ignored) {
+      catch (InterruptedException ignored)
+      {
+        System.out.println(ignored);
       }
     }
+  }
+
+  private static int count()
+  {
+    return ++count;
   }
 }

@@ -7,13 +7,21 @@
  */
 package com.javatunes.thread;
 
+import javax.swing.plaf.TableHeaderUI;
+
 public class MessagePrinterClient {
 
   public static void main(String[] args) {
     // DONE: create two instances of your thread subclass and start them up
       MessagePrinter msgPrntr1 = new MessagePrinter("apples are yummy");
       MessagePrinter msgPrntr2 = new MessagePrinter("pears, too", 1500);
-      msgPrntr1.start();
-      msgPrntr2.start();
+//      msgPrntr1.start();
+//      msgPrntr2.start();
+
+    Thread thd1 = new Thread(msgPrntr1,"Msg-Prntr-1");
+    thd1.start();
+    Thread thd2 = new Thread(msgPrntr2, "Msg-Prntr-2");
+    thd2.start();
+
   }
 }

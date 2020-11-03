@@ -8,18 +8,22 @@
 package com.javatunes.thread;
 
 // DONE: extend the Thread class
-public class MessagePrinter extends Thread{
+// Can implement Runnable instead
+public class MessagePrinter implements Runnable{
+  private static int count;
+
   private String message;
+  private int times = 10;
   private int interval;
   
   public MessagePrinter(String message) {
     this.message = message;
     // DONE: set the thread name [important when debugging]
-    setName("My cool MessagePrinter");
+
   }
 
   public MessagePrinter(String message, int interval){
-    super();
+    this(message);
     this.interval = interval;
 
   }
@@ -34,7 +38,7 @@ public class MessagePrinter extends Thread{
    * You can either leave the catch block empty, or print the exception to stdout.
    */
   public void run() {
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < times; i++) {
       System.out.println(message);
       try{
         Thread.sleep(interval);
@@ -44,5 +48,10 @@ public class MessagePrinter extends Thread{
         System.out.println(ignored);
       }
     }
+  }
+
+  private static int count()
+  {
+    return ++count;
   }
 }
