@@ -10,6 +10,14 @@ package com.entertainment.util;
 
 import com.entertainment.Television;
 
+/**
+ * Utility class to assist with {@code Television}
+ * {@link com.entertainment.Television.DisplayType display type} operations.
+ *
+ * @deprecated with no replacement.
+ */
+
+@Deprecated
 public class TelevisionDisplayAdvisor {
   /**
    * TASK: if a Television's display is CRT, print a message indicating need for upgrade
@@ -18,7 +26,8 @@ public class TelevisionDisplayAdvisor {
    *  loop over the vararg parameter 'tvs' - for each Television:
    *   - determine if its display property is DisplayType.CRT
    *   - if a CRT Television is found, print message to stdout (keep it simple)
-   *  
+   * @param tvs the tvs are case sensitive
+   * @return string of tv
    * OPTIONAL: print "no upgrades needed" (once) if no CRT Televisions are found at all
    */
   public static String check(Television... tvs) {

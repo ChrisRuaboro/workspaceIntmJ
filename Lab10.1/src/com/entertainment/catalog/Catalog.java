@@ -15,6 +15,15 @@ import java.util.HashMap;
 import java.util.Map;
 import com.entertainment.Television;
 
+/**
+ * Manages {@code Television} inventory. Provides several
+ * {@link #findByBrand(String) finder} methods for searching.
+ *
+ * @author Derek Smalls
+ * @version 2.0
+ * @see "Entertainment API 2.0 Specification"
+ */
+
 public class Catalog {
   // in-memory catalog of Televisions
   private static final Collection<Television> catalog = new ArrayList<>(30);
@@ -25,9 +34,10 @@ public class Catalog {
   
   /**
    * Searches catalog by brand.
-   * Returns a collection of matching Televisions.
-   * DONE: change Object return type.
-   * DONE: implement the method and test it.
+   * @return a collection of matching Televisions - never null.
+   * @see #findByBrands(String...)
+   * @see java.lang.String#equals(Object)
+   * @since 1.2
    */
   public static Collection<Television> findByBrand(String brand) {
     // DONE: create a bucket for results - a no-matches result is an empty collection (not null)
