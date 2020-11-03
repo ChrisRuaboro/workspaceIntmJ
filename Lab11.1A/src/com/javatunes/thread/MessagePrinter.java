@@ -7,17 +7,25 @@
  */
 package com.javatunes.thread;
 
-// TODO: extend the Thread class
-public class MessagePrinter {
+// DONE: extend the Thread class
+public class MessagePrinter extends Thread{
   private String message;
+  private int interval;
   
   public MessagePrinter(String message) {
     this.message = message;
-    // TODO: set the thread name [important when debugging]
+    // DONE: set the thread name [important when debugging]
+    setName("My cool MessagePrinter");
+  }
+
+  public MessagePrinter(String message, int interval){
+    super();
+    this.interval = interval;
+
   }
   
   /**
-   * TODO: implement run() as follows:
+   * DONE: implement run() as follows:
    * It should loop 10 times, printing the 'message' field to stdout,
    * then pausing for some interval (in millis) that you choose.
    * 
@@ -26,6 +34,15 @@ public class MessagePrinter {
    * You can either leave the catch block empty, or print the exception to stdout.
    */
   public void run() {
-    
+    for (int i = 0; i < 10; i++) {
+      System.out.println(message);
+      try{
+        Thread.sleep(interval);
+      }
+      catch (InterruptedException ignored)
+      {
+        System.out.println(ignored);
+      }
+    }
   }
 }
