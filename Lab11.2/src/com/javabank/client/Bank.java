@@ -16,7 +16,9 @@ public class Bank {
   public static void main(String[] args) {
     Account a1 = new Account("Account-1", 1000);
     Account a2 = new Account("Account-2", 1000);
-    
+
+
+
     // create two Teller threads
     Teller t1 = new Teller(a1, a2);
     t1.setName("Teller-1");
