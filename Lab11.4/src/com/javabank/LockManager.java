@@ -39,6 +39,8 @@ class LockManager {
         if (lock2IsLocked) lock2.unlock();
         try { Thread.sleep(250); }
         catch (InterruptedException ignored) { }
+
+        // ALWAYS UNLOCK IT
       }
     }
   }
