@@ -41,6 +41,7 @@ class LockManager {
         catch (InterruptedException ignored) { }
 
         // ALWAYS UNLOCK IT
+        // Install git
       }
     }
   }
